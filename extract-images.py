@@ -9,7 +9,7 @@ from PIL import Image
 from tqdm import trange
 
 
-COMMON_WIDTHS = (800, 1024, 1280, 1366, 1440, 1600, 1920, 2048)
+COMMON_WIDTHS = (800, 1024, 1152, 1280, 1366, 1440, 1600, 1920, 2048)
 MODES = ("RGB", "RGBA")
 
 
@@ -17,7 +17,7 @@ def extract_images(fd: typing.BinaryIO, total_size: int, width: int, height: int
     channels = len(mode)
     if height is None:
         height = total_size // (width * channels)
-    
+
     size = width * height * channels
     nimages = total_size // size
 
@@ -28,7 +28,7 @@ def extract_images(fd: typing.BinaryIO, total_size: int, width: int, height: int
         img = Image.fromarray(data.reshape((height, width, len(mode))))
         if all(minval == maxval for minval, maxval in img.getextrema()):
             continue
-        
+
         path = outdir
         filename = "img"
         if nimages > 1:
