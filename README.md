@@ -46,7 +46,7 @@ options:
   --offset OFFSET  Offset in bytes (default: 0)
 ```
 
-If `--width` is not set, the script is repeated for a number of standard screen widths `(800, 1024, 1280, 1366, 1440, 1600, 1920, 2048)`,
+If `--width` is not set, the script is repeated for a number of standard screen widths `(800, 1024, 1152, 1280, 1366, 1440, 1600, 1920, 2048)`,
 extracting images for each option - might take a while but is useful if width is unknown.
 
 If `--mode` is not set, the script will run all extractions assuming both `RGB`, `RGBA`, and `BGRx`.
