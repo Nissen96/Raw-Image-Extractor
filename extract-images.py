@@ -87,7 +87,7 @@ def parse_args() -> argparse.Namespace:
     args.out.mkdir(parents=True, exist_ok=True)
 
     args.infile.seek(0, os.SEEK_END)
-    args.length = args.infile.tell() - args.skip
+    args.length = args.infile.tell() - args.offset
     return args
 
 
@@ -102,7 +102,7 @@ def main() -> None:
                 height = math.ceil(args.length / (width * len(mode)))
 
             # Extract from provided offset
-            args.infile.seek(args.skip)
+            args.infile.seek(args.offset)
 
             extract_images(args.infile, args.length, width, height, mode, args.out, args.count)
             print()
